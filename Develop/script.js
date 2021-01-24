@@ -4,6 +4,7 @@ var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G','H','I','J','K','L','M','N','
 var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g','h','i','j','k','l','m','n','o','p','q', 'r', 's', 't','u','v','x','y','z'];
 var character = ['!','#','$', '%','&','*',];
 var number = ['1','2','3','4','5','6','7','8','9','0'];
+let passwordOptions = {};
 
 // Write password to the #password input
 function writePassword() {
@@ -21,7 +22,7 @@ function getPasswordOptions() {
     return;
   }
 
-  if (length < 8 && length > 120){
+  if (length < 8 || length > 120){
     alert("Password needs to be greater than 8 and less than 120");
     return;
   }
@@ -36,7 +37,7 @@ function getPasswordOptions() {
     return;
   }
   
-  const passwordOptions = {
+  passwordOptions = {
     length: length,
     characterUse: characterUse,
     numbersUse: numbersUse,
@@ -44,40 +45,43 @@ function getPasswordOptions() {
     lowerCaseUse: lowerCaseUse
   } 
   return passwordOptions;
-
-
 };
 
 function generatePassword() {
   getPasswordOptions();
   var storePassword = [];
-  var storePossibleCharacters = [];
-  var storeGuaranteedCharacters = [];
+  var possibleCharacters = [];
 
-  if (getPasswordOptions.characterUse){
-    storePossibleCharacters = storePossibleCharacters.concat(character);
-    storeGuaranteedCharacters = storeGuaranteedCharacters.push(getRandom(character));
+  if (passwordOptions.characterUse){
+    possibleCharacters = possibleCharacters.concat(character);
+    // storeGuaranteedCharacters = storeGuaranteedCharacters.push(getRandom(character));
   }
-  if (getPasswordOptions.numbersUse){
-    storePossibleCharacters = storePossibleCharacters.concat(number);
-    storeGuaranteedCharacters = storeGuaranteedCharacters.push(getRandom(number));
-  }if (getPasswordOptions.lowerCaseUse){
-    storePossibleCharacters = storePossibleCharacters.concat(lowerCase);
-    storeGuaranteedCharacters = storeGuaranteedCharacters.push(getRandom(lowerCase));
-  }if (getPasswordOptions.upperCaseUse){
-    storePossibleCharacters = storePossibleCharacters.concat(upperCase);
-    storeGuaranteedCharacters = storeGuaranteedCharacters.push(getRandom(upperCase));
+  if (passwordOptions.numbersUse === true){
+    possibleCharacters = possibleCharacters.concat(number);
+    // storeGuaranteedCharacters = storeGuaranteedCharacters.push(getRandom(number));
   }
+  if (passwordOptions.lowerCaseUse === true){
+    possibleCharacters = possibleCharacters.concat(lowerCase);
+    // storeGuaranteedCharacters = storeGuaranteedCharacters.push(getRandom(lowerCase));
+  }
+  if (passwordOptions.upperCaseUse === true){
+    possibleCharacters = possibleCharacters.concat(upperCase);
+    // storeGuaranteedCharacters = storeGuaranteedCharacters.push(getRandom(upperCase));
+  }
+  console.log(possibleCharacters)
 // loop over number of password length from the options object and select at random from the characters arrays. push possible character to the results array.
-for (i=0; i < passwordOptions.length; i++){
-  var possibleCharacter = getRandom(storePossibleCharacters);
-  result.push(possibleCharacter);
-}
+  for (i=0; i < passwordOptions.length; i++){
+    var possibleCharacter = possibleCharacters[Math.floor(Math.random()*possibleCharacters.length)];
+    storePassword.push(possibleCharacter);
+    return storePassword.join('');
+  }
+  console.log(storePassword);
 // another for loop that loops through guaranteed characters array and sets each character index to the result index.
 
-for (i=0; i< storeGuaranteedCharacters.length; i++)
-  var characterIndex = i;
-  return result.join("");
+  // for (i=0; i< storeGuaranteedCharacters. length; i++){
+  //   // var result = storeGuaranteedCharacters[i];
+  //   return result.join("");
+  // }
 };
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
