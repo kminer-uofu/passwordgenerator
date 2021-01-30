@@ -1,12 +1,7 @@
 # 03 JavaScript: Password Generator
 
+This website requests options from the user to dynamically create a random password, and adapts to all screen sizes.
 
-Picture of Site working:
-./Assets/Screen Shot 2021-01-30 at 1.41.24 PM.png
-
-Create an application that generates a random password based on user-selected criteria. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
-
-If you are unfamiliar with special characters, take a look at [some examples](https://www.owasp.org/index.php/Password_special_characters).
 
 ## User Story
 
@@ -37,6 +32,8 @@ THEN the password is either displayed in an alert or written to the page
 ```
 
 The following image demonstrates the application functionality:
+
+![screenshot of the app] (Assets/Screen Shot 2021-01-30 at 1.41.24 PM.png)
 
 ![password generator demo](./Assets/03-javascript-homework-demo.png)
 
