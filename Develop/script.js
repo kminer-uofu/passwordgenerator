@@ -5,6 +5,7 @@ var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g','h','i','j','k','l','m','n','
 var character = ['!','#','$', '%','&','*',];
 var number = ['1','2','3','4','5','6','7','8','9','0'];
 let passwordOptions = {};
+let pw = [];
 
 // Write password to the #password input
 function writePassword() {
@@ -68,20 +69,19 @@ function generatePassword() {
     possibleCharacters = possibleCharacters.concat(upperCase);
     // storeGuaranteedCharacters = storeGuaranteedCharacters.push(getRandom(upperCase));
   }
-  console.log(possibleCharacters)
+  console.log(possibleCharacters);
+  console.log(passwordOptions.length);
 // loop over number of password length from the options object and select at random from the characters arrays. push possible character to the results array.
-  for (i=0; i < passwordOptions.length; i++){
+  for (var i=0; i < passwordOptions.length; i++){
     var possibleCharacter = possibleCharacters[Math.floor(Math.random()*possibleCharacters.length)];
-    storePassword.push(possibleCharacter);
-    return storePassword.join('');
-  }
+    pw = storePassword.push(possibleCharacter);
+    console.log(storePassword);
+  } 
   console.log(storePassword);
+  return storePassword.join("");
+};
 // another for loop that loops through guaranteed characters array and sets each character index to the result index.
 
-  // for (i=0; i< storeGuaranteedCharacters. length; i++){
-  //   // var result = storeGuaranteedCharacters[i];
-  //   return result.join("");
-  // }
-};
+  
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
