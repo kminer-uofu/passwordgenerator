@@ -75,9 +75,7 @@ function generatePassword() {
   for (var i=0; i < passwordOptions.length; i++){
     var possibleCharacter = possibleCharacters[Math.floor(Math.random()*possibleCharacters.length)];
     pw = storePassword.push(possibleCharacter);
-    console.log(storePassword);
   } 
-  console.log(storePassword);
   return storePassword.join("");
 };
 // another for loop that loops through guaranteed characters array and sets each character index to the result index.
