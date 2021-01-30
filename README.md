@@ -33,9 +33,8 @@ THEN the password is either displayed in an alert or written to the page
 
 The following image demonstrates the application functionality:
 
-![screenshot of the app] (Assets/Screen Shot 2021-01-30 at 1.41.24 PM.png)
+![screenshot of the app](./Assets/screenshot.png)
 
-![password generator demo](./Assets/03-javascript-homework-demo.png)
 
 ## Review
 
